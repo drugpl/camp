@@ -27,8 +27,6 @@ compile '*' do
 end
 
 route '/stylesheets/*' do
-  puts item.identifier
-  puts item.inspect
   item.identifier.chop + '.' + item[:extension]
 end
 
