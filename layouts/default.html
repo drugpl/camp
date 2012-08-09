@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--<title>Paneq.github.com by paneq</title>-->
+    <title>A Brand New nanoc Site - <%= @item[:title] %></title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>"> 
+
+  </head>
+  <body>
+    <div id="header">
+      <nav>
+        <li class="fork"><a href="https://github.com/paneq">fork on github to attend</a></li>
+      </nav>
+    </div>
+
+    <div id="sidebar">
+      <ul>
+        <li><a href="#when">When</a></li>
+        <li><a href="#where">Where</a></li>
+        <li><a href="#hotel">Hotel</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#price">Price</a></li>
+        <li><a href="#transport">Transport</a></li>
+        <li><a href="#talks">Lightning talks</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#hack">Hackathon</a></li>
+        <li><a href="#work">Workshops</a></li>
+        <li><a href="#attendants">Attendants</a></li>
+      </ul>
+    </div>
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>#1 DRUGcamp</h1>
+          <h2>28-30 September 2012</h1>
+          <h2>Rzeczka near. Walim, Poland</h2>
+
+          <p>Weekend countryside gathering of fellow Rubyists.</p>
+          <p>Feel like hacking on Ruby over weekend? Eager to give a talk that sparks heated discussion? Finally, curious to experience the DRUG-way?</p>
+          <hr>
+          <span class="credits left">Organized by: <a href="http://drug.org.pl">DRUG</a></span>
+          <span class="credits right"><a href="http://drug-way.com">DRUG-way</a></span>
+        </div>
+
+        <h2 id="when">When</h2>
+        <p>28-30 September 2012</p>
+
+        <h2 id="where">Where</h2>
+        <p>
+        <a href="http://goo.gl/maps/dLOf6">Rzeczka near Walim, Poland</a><br /><br />
+          <iframe width="725" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=Rzeczka,+walim&amp;aq=t&amp;sll=35.101934,-95.712891&amp;sspn=48.785697,107.138672&amp;ie=UTF8&amp;hq=&amp;hnear=Rzeczka,+wa%C5%82brzyski,+dolno%C5%9Bl%C4%85skie,+Polska&amp;ll=50.669022,16.458272&amp;spn=2.402474,6.696167&amp;t=m&amp;z=8&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=pl&amp;geocode=&amp;q=Rzeczka,+walim&amp;aq=t&amp;sll=35.101934,-95.712891&amp;sspn=48.785697,107.138672&amp;ie=UTF8&amp;hq=&amp;hnear=Rzeczka,+wa%C5%82brzyski,+dolno%C5%9Bl%C4%85skie,+Polska&amp;ll=50.669022,16.458272&amp;spn=2.402474,6.696167&amp;t=m&amp;z=8" style="color:#0000FF;text-align:left">Wyświetl większą mapę</a></small>
+        </p>
+
+        <h2 id="hotel">Hotel</h2>
+        <p>
+          <a href="http://rzeczka.eu">Ośrodek Wypoczynkowy Rzeczka</a><br />
+          Check in: 3 p.m.
+          Check out: 10 a.m.
+        </p>
+
+        <h2 id="booking">Booking</h2>
+        <p>
+          Do it yourself! :) Inform hotel crew that you are attending DRUGcamp.
+        </p>
+
+        <h2 id="price">Price</h2>
+        <p>
+          40 PLN / 10 EUR (per day, discount for children)
+        </p>
+
+        <h2 id="transport">Transport</h2>
+        <p>
+          <table>
+            <tr>
+              <th>Driver / Leader</th>
+              <th>Going from</th>
+              <th>Going by</th>
+              <th>Leaving at</th>
+              <th>Passengers / Companions</th>
+            </tr>
+            <% item[:transport].each do |tr| %>
+            <tr>
+              <td>
+                <%= tr[:who] %>
+              </td>
+              <td>
+                <%= tr[:from] %>
+              </td>
+              <td>
+                <%= tr[:by] %>
+              </td>
+              <td>
+                <%= tr[:leave] %>
+              </td>
+              <td>
+                <% (tr[:seats] || []).each do |passenger| %>
+                  <%= passenger %><br />
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </p>
+
+        <h2 id="talks">Lightning talks</h2>
+        <p>
+          <table>
+            <tr>
+              <th>Speaker</th>
+              <th>Subject</th>
+            </tr>
+            <% item[:lt].each do |lt| %>
+            <tr>
+              <td>
+                <%= lt[:speaker] %>
+              </td>
+              <td>
+                <%= lt[:subject] %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </p>
+
+        <h2 id="games">Sport / Games</h2>
+        <p>
+          <table>
+            <tr>
+              <th>Player</th>
+              <th>Game</th>
+            </tr>
+            <% item[:games].each do |lt| %>
+            <tr>
+              <td>
+                <%= lt[:player] %>
+              </td>
+              <td>
+                <%= lt[:game] %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </p>
+
+        <h2 id="hack">Hackathon</h2>
+        <p>
+          <table>
+            <tr>
+              <th>Coder</th>
+              <th>Project</th>
+            </tr>
+            <% item[:hack].each do |h| %>
+            <tr>
+              <td>
+                <%= h[:coder] %>
+              </td>
+              <td>
+                <%= h[:project] %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </p>
+
+        <h2 id="work">Workshop</h2>
+        <p>
+          <table>
+            <tr>
+              <th>Trainer</th>
+              <th>Subject</th>
+              <th>Attendants</th>
+            </tr>
+            <% item[:work].each do |w| %>
+            <tr>
+              <td>
+                <%= w[:trainer] %>
+              </td>
+              <td>
+                <%= w[:subject] %>
+              </td>
+              <td>
+                <% (w[:attendants] || []).each do |att| %>
+                  <%= att %><br />
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </p>
+
+
+        <h2>Sponsors and Anti-harassment policy</h2>
+        <p>Nah...</p>
+
+        <h2 id="attendants">Attendants</h2>
+        <h3>Add your name to the list only if you already booked and payed</h3>
+        <p>
+          <table>
+            <tr>
+              <th>Person</th>
+              <th>Contact</th>
+              <th>Organizer</th>
+            </tr>
+            <% item[:attendants].each do |a| %>
+            <tr>
+              <td>
+                <%= a[:person] %>
+              </td>
+              <td>
+                <%= a[:contact] %>
+              </td>
+              <td>
+                <% if a[:organizer] %>
+                  ✓
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </p>
+
+      <%= yield %>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
+
