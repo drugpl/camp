@@ -1,0 +1,29 @@
+---
+games:
+- player: 'Andrzej Krzywda'
+  game: 'Speedminton'
+- player: 'Paweł Pacana'
+  game: 'Frisbee'
+- player: 'Robert Pankowecki'
+  game: 'Frisbee'
+---
+
+<h2 id="games">Sport / Games</h2>
+<p>
+  <table>
+    <tr>
+      <th>Player</th>
+      <th>Game</th>
+    </tr>
+    <% item[:games].each do |lt| %>
+    <tr>
+      <td>
+        <%= lt[:player] %>
+      </td>
+      <td>
+        <%= lt[:game] %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</p>

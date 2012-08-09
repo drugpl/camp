@@ -1,0 +1,49 @@
+---
+title: Transport
+transport:
+- who: 'Michał Łomnicki'
+  from: 'Wrocław'
+  by: 'Car'
+  seats: ['Paweł Pacana', 'Julita Cichońska', 'Free Seat !!!']
+  leave: "Friday, 7 p.m."
+- who: 'Michał Łomnicki'
+  from: 'Wrocław'
+  by: 'Car'
+  seats: ['Paweł Pacana', 'Julita Cichońska', 'Free Seat !!!']
+  leave: "Friday, 7 p.m."
+---
+
+<h2 id="transport">Transport</h2>
+<p>
+  <table>
+    <tr>
+      <th>Driver / Leader</th>
+      <th>Going from</th>
+      <th>Going by</th>
+      <th>Leaving at</th>
+      <th>Passengers / Companions</th>
+    </tr>
+    <% (@item[:transport] || []).each do |tr| %>
+    <tr>
+      <td>
+        <%= tr[:who] %>
+      </td>
+      <td>
+        <%= tr[:from] %>
+      </td>
+      <td>
+        <%= tr[:by] %>
+      </td>
+      <td>
+        <%= tr[:leave] %>
+      </td>
+      <td>
+        <% (tr[:seats] || []).each do |passenger| %>
+          <%= passenger %><br />
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</p>
+

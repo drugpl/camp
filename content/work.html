@@ -1,0 +1,35 @@
+---
+work:
+- trainer: 'Michał Łomnicki'
+  subject: 'Poker'
+  attendants: ['Robert Pankowecki']
+- trainer: 'Michał Łomnicki'
+  subject: 'Drinking hard'
+  attendants: ['Robert Pankowecki']
+---
+
+<h2 id="work">Workshop</h2>
+<p>
+  <table>
+    <tr>
+      <th>Trainer</th>
+      <th>Subject</th>
+      <th>Attendants</th>
+    </tr>
+    <% item[:work].each do |w| %>
+    <tr>
+      <td>
+        <%= w[:trainer] %>
+      </td>
+      <td>
+        <%= w[:subject] %>
+      </td>
+      <td>
+        <% (w[:attendants] || []).each do |att| %>
+          <%= att %><br />
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</p>

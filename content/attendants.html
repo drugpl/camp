@@ -1,0 +1,33 @@
+---
+attendants:
+- person: ''
+  contact: ''
+  organizer: true
+---
+
+<h2 id="attendants">Attendants</h2>
+<h3>Add your name to the list only if you already booked and payed</h3>
+<p>
+  <table>
+    <tr>
+      <th>Person</th>
+      <th>Contact</th>
+      <th>Organizer</th>
+    </tr>
+    <% item[:attendants].each do |a| %>
+    <tr>
+      <td>
+        <%= a[:person] %>
+      </td>
+      <td>
+        <%= a[:contact] %>
+      </td>
+      <td>
+        <% if a[:organizer] %>
+          ✓
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</p>

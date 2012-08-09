@@ -1,0 +1,25 @@
+---
+hack:
+- coder: 'Robert Pankowecki'
+  project: 'm2r'
+---
+
+<h2 id="hack">Hackathon</h2>
+<p>
+  <table>
+    <tr>
+      <th>Coder</th>
+      <th>Project</th>
+    </tr>
+    <% item[:hack].each do |h| %>
+    <tr>
+      <td>
+        <%= h[:coder] %>
+      </td>
+      <td>
+        <%= h[:project] %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</p>

@@ -1,0 +1,29 @@
+---
+lt:
+- speaker: 'Michał Łomnicki'
+  subject: 'TBA'
+- speaker: 'Paweł Pacana'
+  subject: 'TBA'
+- speaker: 'Robert Pankowecki'
+  subject: 'TBA'
+---
+
+<h2 id="talks">Lightning talks</h2>
+  <p>
+    <table>
+      <tr>
+        <th>Speaker</th>
+        <th>Subject</th>
+      </tr>
+      <% item[:lt].each do |lt| %>
+      <tr>
+        <td>
+          <%= lt[:speaker] %>
+        </td>
+        <td>
+          <%= lt[:subject] %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </p>
