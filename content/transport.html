@@ -4,12 +4,17 @@ transport:
 - who: 'Michał Łomnicki'
   from: 'Wrocław'
   by: 'Car'
-  seats: ['Paweł Pacana', 'Julita Cichońska', 'Free Seat !!!']
+  seats: ['Paweł Pacana', 'Julita Cichońska', '']
   leave: "Friday, 7 p.m."
 - who: 'Tomasz Nazar'
   from: 'Wrocław / Lubsza'
   by: 'Car'
   seats: ['Tomasz Nazar', 'Monika Nazar', 'Ania', 'Mati']
+  leave: "Friday"
+- who: 'Marta Bartczak-Pankowecka'
+  from: 'Wrocław'
+  by: 'Car'
+  seats: ['Robert Pankowecki', '', '']
   leave: "Friday"
 ---
 
@@ -39,7 +44,12 @@ transport:
       </td>
       <td>
         <% (tr[:seats] || []).each do |passenger| %>
-          <%= passenger %><br />
+          <% if passenger.empty? %>
+            <b>Free Seat !!!</b>
+          <% else %>
+            <%= passenger %>
+          <% end %>
+          <br />
         <% end %>
       </td>
     </tr>
