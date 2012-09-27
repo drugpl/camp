@@ -9,6 +9,9 @@ work:
 - trainer: 'Radosław Jędryszczak'
   subject: 'RubyMotion'
   attendants: ['Michał Czyż']
+- trainer: 'Andrzej Krzywda'
+  subject: 'Single page applications'
+
 ---
 
 <h2 id="work">Workshop</h2>
@@ -17,7 +20,6 @@ work:
     <tr>
       <th>Trainer</th>
       <th>Subject</th>
-      <th>Attendants</th>
     </tr>
     <% item[:work].each do |w| %>
     <tr>
@@ -26,11 +28,6 @@ work:
       </td>
       <td>
         <%= w[:subject] %>
-      </td>
-      <td>
-        <% (w[:attendants] || []).each do |att| %>
-          <%= att %><br />
-        <% end %>
       </td>
     </tr>
     <% end %>
